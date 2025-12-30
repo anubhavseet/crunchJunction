@@ -185,12 +185,16 @@ const Home = () => {
           <div className="marquee-content marquee-text">
             <span>CrunchJunction ⠀⠀✪</span>
             <span>India Ka Crunchy Food ⠀⠀✪</span>
+            <span>Crunch Munch Repeat ⠀✪</span>
             <span>CrunchJunction ⠀⠀✪</span>
             <span>India Ka Crunchy Food ⠀⠀✪</span>
+            <span>Crunch Munch Repeat ⠀✪</span>
             <span>CrunchJunction ⠀⠀✪</span>
             <span>India Ka Crunchy Food ⠀⠀✪</span>
+            <span>Crunch Munch Repeat ⠀✪</span>
             <span>CrunchJunction ⠀⠀✪</span>
             <span>India Ka Crunchy Food ⠀⠀✪</span>
+            <span>Crunch Munch Repeat ⠀✪</span>
           </div>
         </div>
       </section>
@@ -234,31 +238,33 @@ const Home = () => {
       {/* Full Menu Section */}
       <section id="menu" className={`menu-section ${menuVisible ? 'animate' : ''}`} ref={menuRef}>
         <div className="container">
-          <div className="menu-hero-inline sticky-title">
-            <h2 className="section-title menu-title">
-              <span className="title-part-1">Explore Our</span>
-              <span className="title-part-2 accent-text">Delicious Menu</span>
-              <span className="title-part-3">Every Bite is a Celebration!</span>
-            </h2>
-          </div>
-          
-          <div className="menu-categories">
-            {[
-              { id: 'all', name: 'All Items' },
-              { id: 'momos', name: 'Momos' },
-              { id: 'chicken', name: 'Chicken' },
-              { id: 'fish', name: 'Fish' },
-              { id: 'paneer', name: 'Paneer' },
-              { id: 'snacks', name: 'Snacks & Rolls' }
-            ].map(cat => (
-              <button
-                key={cat.id}
-                className={`category-btn ${activeCategory === cat.id ? 'active' : ''}`}
-                onClick={() => handleCategoryChange(cat.id)}
-              >
-                {cat.name}
-              </button>
-            ))}
+          <div className="menu-header-sticky">
+            <div className="menu-hero-inline sticky-title">
+              <h2 className="section-title menu-title">
+                <span className="title-part-1">Explore Our</span>
+                <span className="title-part-2 accent-text">Delicious Menu</span>
+                <span className="title-part-3">Every Bite is a Celebration!</span>
+              </h2>
+            </div>
+            
+            <div className="menu-categories">
+              {[
+                { id: 'all', name: 'All Items' },
+                { id: 'momos', name: 'Momos' },
+                { id: 'chicken', name: 'Chicken' },
+                { id: 'fish', name: 'Fish' },
+                { id: 'paneer', name: 'Paneer' },
+                { id: 'snacks', name: 'Snacks & Rolls' }
+              ].map(cat => (
+                <button
+                  key={cat.id}
+                  className={`category-btn ${activeCategory === cat.id ? 'active' : ''}`}
+                  onClick={() => handleCategoryChange(cat.id)}
+                >
+                  {cat.name}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className={`menu-grid ${isTransitioning ? 'transitioning' : ''}`}>
@@ -368,20 +374,31 @@ const Home = () => {
           </div>
           
           <div className="about-content">
-            <div className="about-graphic">
-              <img src="/images/crunch-junction-graphic.png" alt="Crunch Junction" />
+            <div className="about-text-content">
+              <div className="about-year-badge">
+                <span className="year-text">Since 2019'</span>
+              </div>
+              <div className="about-story-text">
+                <p>
+                  Our story is one of passion, people, and purpose. From the vibrant lanes of the city center 
+                  to neighborhoods across the region, we've grown into multiple locations - each one a joyful 
+                  step in our journey to connect hearts, build trust, and create something truly meaningful together.
+                </p>
+                <p>
+                  What started as a small dream in 2019 has blossomed into a beloved brand that brings people 
+                  together through the joy of delicious, crunchy food. We believe in using only the freshest 
+                  ingredients, prepared with love and served with a smile. Every dish tells a story, and every 
+                  customer becomes part of our extended family.
+                </p>
+                <p>
+                  Today, CrunchJunction stands as a testament to what can be achieved when passion meets dedication. 
+                  We're not just serving food - we're creating experiences, building communities, and spreading 
+                  happiness one crunchy bite at a time. Join us on this incredible journey as we continue to grow, 
+                  innovate, and bring the best of India's crunchy food culture to your table.
+                </p>
+              </div>
+              <button className="btn btn-secondary">Read More</button>
             </div>
-            <div className="about-year-badge">
-              <span className="year-text">Since 2019'</span>
-            </div>
-            <div className="about-story-text">
-              <p>
-                Our story is one of passion, people, and purpose. From the vibrant lanes of the city center 
-                to neighborhoods across the region, we've grown into multiple locations - each one a joyful 
-                step in our journey to connect hearts, build trust, and create something truly meaningful together.
-              </p>
-            </div>
-            <button className="btn btn-secondary">Read More</button>
           </div>
         </div>
       </section>
@@ -394,35 +411,51 @@ const Home = () => {
             {[
               {
                 id: 1,
-                name: 'Sarah Johnson',
-                location: 'City Center',
-                text: 'Best crunchy food in town! The burgers are always fresh and the service is amazing.',
+                name: 'Rajesh Kumar',
+                location: 'Mumbai, Maharashtra',
+                text: 'CrunchJunction has become my go-to place for delicious momos! The Chicken Cheese Momo is absolutely amazing - perfectly crispy on the outside and juicy inside. The service is quick, and the staff is always friendly. I visit at least twice a week with my family. Highly recommended!',
                 rating: 5,
                 type: 'customer'
               },
               {
                 id: 2,
-                name: 'Mike Chen',
-                location: 'Downtown',
-                text: 'Love the variety here. Perfect for a quick lunch or dinner with friends.',
+                name: 'Priya Sharma',
+                location: 'Delhi, NCR',
+                text: 'As a foodie, I\'ve tried many places, but CrunchJunction stands out! Their Fish Fry is incredibly fresh and perfectly seasoned. The variety of snacks and rolls is impressive. The prices are very reasonable for the quality you get. The ambiance is clean and welcoming. Definitely coming back!',
                 rating: 5,
                 type: 'customer'
               },
               {
                 id: 3,
-                name: 'Emily Rodriguez',
-                location: 'Westside',
-                text: 'CrunchJunction never disappoints. The quality is consistent and prices are great!',
+                name: 'Amit Patel',
+                location: 'Ahmedabad, Gujarat',
+                text: 'I\'ve been a regular customer for over a year now. What I love most is the consistency - every time I order, the food is fresh, hot, and delicious. The Paneer Satte is my favorite - perfectly grilled with amazing flavors. The packaging is also excellent for takeaways. Great value for money!',
                 rating: 5,
                 type: 'customer'
               },
               {
                 id: 4,
-                name: 'David Park',
-                location: 'Partner',
-                text: 'Becoming a CrunchJunction partner was the best decision. Strong support and consistent quality!',
+                name: 'Sneha Reddy',
+                location: 'Bangalore, Karnataka',
+                text: 'CrunchJunction never disappoints! I especially love their Chicken Wings and Spring Rolls. The food is always fresh, and the flavors are authentic. The staff remembers my regular orders, which shows their attention to customer service. The best part? The food is ready quickly even during peak hours!',
+                rating: 5,
+                type: 'customer'
+              },
+              {
+                id: 5,
+                name: 'Vikram Singh',
+                location: 'Pune, Maharashtra',
+                text: 'Being a CrunchJunction franchise partner has been the best business decision I\'ve made! The support from the team is exceptional - from training to marketing, they guide you every step. The quality standards are maintained across all outlets, and customers love the consistent taste. My outlet is doing great!',
                 rating: 5,
                 type: 'partner'
+              },
+              {
+                id: 6,
+                name: 'Anjali Mehta',
+                location: 'Kolkata, West Bengal',
+                text: 'The Gandharaj Chicken Momo here is simply outstanding! It reminds me of authentic street food but with restaurant-quality hygiene. The dipping sauces are perfectly balanced - not too spicy, not too bland. I bring my friends here often, and everyone loves it. The place has become our favorite hangout spot!',
+                rating: 5,
+                type: 'customer'
               }
             ].map(testimonial => (
               <div key={testimonial.id} className={`testimonial-card ${testimonial.type}`}>

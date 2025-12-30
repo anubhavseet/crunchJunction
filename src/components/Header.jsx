@@ -71,7 +71,7 @@ const Header = () => {
         </nav>
         
         <a href="#home" className="logo" onClick={(e) => handleNavClick(e, 'home')}>
-          <span className="logo-text">Crunch<span className="logo-accent">Junction</span></span>
+          <span className="logo-text"><span className="logo-accent">Crunch</span><span className="logo-junction">Junction</span></span>
         </a>
         
         <div className="header-right">
