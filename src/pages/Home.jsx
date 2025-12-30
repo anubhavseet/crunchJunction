@@ -44,22 +44,28 @@ const Home = () => {
   const [activeCategory, setActiveCategory] = useState('all')
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [isJourneyHovered, setIsJourneyHovered] = useState(false)
+  const [featuredIndex, setFeaturedIndex] = useState(0)
+  const [isFeaturedHovered, setIsFeaturedHovered] = useState(false)
   const [menuRef, menuVisible] = useScrollAnimation({ threshold: 0.1 })
   const [featuredRef, featuredVisible] = useScrollAnimation({ threshold: 0.2 })
   const [aboutRef, aboutVisible] = useScrollAnimation({ threshold: 0.1 })
+  const [videoRef, videoVisible] = useScrollAnimation({ threshold: 0.2, once: false })
   const [testimonialsRef, testimonialsVisible] = useScrollAnimation({ threshold: 0.1 })
   const [contactRef, contactVisible] = useScrollAnimation({ threshold: 0.1 })
 
   const heroSlides = [
     {
       id: 1,
-      title: 'Crunch Junction - India Ka Crunchy Food',
-      image: getDishImage('Gandharaj Chicken Momo')
+      title: "Bengal's biggest momo franchise",
+      image: '/images/new_year_2026.png',
+      mobileImage: '/images/new_year_2026_mobile.png',
+      isNewYear: true
     },
+  
     {
       id: 2,
       title: 'Delicious Momos & More',
-      image: getDishImage('Chicken Cheese Momo')
+      image: '/images/momo_plate.webp'
     },
     {
       id: 3,
@@ -76,7 +82,7 @@ const Home = () => {
   const featuredItems = [
     {
       id: 1,
-      name: 'Gandharaj Chicken Momo',
+      name: 'Chicken Momo',
       image: getDishImage('Gandharaj Chicken Momo')
     },
     {
@@ -93,8 +99,69 @@ const Home = () => {
       id: 4,
       name: 'Chicken Delights',
       image: getDishImage('Chicken Wings')
+    },
+    {
+      id: 5,
+      name: 'Mutton Momo',
+      image: getDishImage('Mutton Momo')
+    },
+    {
+      id: 6,
+      name: 'Prawn Delights',
+      image: getDishImage('Prawn Momo')
+    },
+    {
+      id: 7,
+      name: 'Spring Rolls',
+      image: getDishImage('Cheese Chicken Spring Roll')
+    },
+    {
+      id: 8,
+      name: 'Chicken Cutlet',
+      image: getDishImage('Chicken Cutlet')
     }
   ]
+
+  const [itemsPerView, setItemsPerView] = useState(4)
+
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth >= 1200) {
+        setItemsPerView(3)
+      } else if (window.innerWidth >= 768) {
+        setItemsPerView(2)
+      } else {
+        setItemsPerView(1)
+      }
+    }
+    updateItemsPerView()
+    window.addEventListener('resize', updateItemsPerView)
+    return () => window.removeEventListener('resize', updateItemsPerView)
+  }, [])
+
+  const maxIndex = Math.max(0, featuredItems.length - itemsPerView)
+
+  const handleFeaturedNext = () => {
+    setFeaturedIndex((prev) => (prev >= maxIndex ? 0 : prev + 1))
+  }
+
+  const handleFeaturedPrev = () => {
+    setFeaturedIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
+  }
+
+  // Auto-rotate featured carousel
+  useEffect(() => {
+    if (isFeaturedHovered) return // Pause on hover
+    
+    const interval = setInterval(() => {
+      setFeaturedIndex((prev) => {
+        const next = prev + 1
+        return next > maxIndex ? 0 : next
+      })
+    }, 2500) // Rotate every 2.5 seconds (faster)
+
+    return () => clearInterval(interval)
+  }, [maxIndex, isFeaturedHovered])
 
   const testimonials = [
     {
@@ -123,6 +190,27 @@ const Home = () => {
     }, 5000)
     return () => clearInterval(interval)
   }, [])
+
+  // Handle responsive background images for New Year slide
+  useEffect(() => {
+    const updateBackgroundImages = () => {
+      const newYearSlides = document.querySelectorAll('.hero-slide.new-year-slide')
+      newYearSlides.forEach((slide) => {
+        const desktopImage = slide.getAttribute('data-desktop-image')
+        if (desktopImage) {
+          if (window.innerWidth >= 769) {
+            slide.style.backgroundImage = `url(${desktopImage})`
+          } else {
+            slide.style.backgroundImage = `url(/images/new_year_2026_mobile.png)`
+          }
+        }
+      })
+    }
+
+    updateBackgroundImages()
+    window.addEventListener('resize', updateBackgroundImages)
+    return () => window.removeEventListener('resize', updateBackgroundImages)
+  }, [currentSlide])
 
   const handleCategoryChange = (categoryId) => {
     setIsTransitioning(true)
@@ -155,16 +243,27 @@ const Home = () => {
           {heroSlides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+              className={`hero-slide ${index === currentSlide ? 'active' : ''} ${slide.isNewYear ? 'new-year-slide' : ''}`}
               style={{
-                backgroundImage: `url(${slide.image})`
+                backgroundImage: slide.mobileImage 
+                  ? `url(${slide.mobileImage})` 
+                  : `url(${slide.image})`
               }}
+              data-desktop-image={slide.mobileImage ? slide.image : undefined}
             >
-              <div className="hero-slide-content">
-                <h1 className="hero-slide-title">{slide.title}</h1>
-                <button className="btn btn-primary" onClick={() => scrollToSection('menu')}>
-                  Know More
-                </button>
+              <div className={`hero-slide-content ${slide.isNewYear ? 'new-year-slide' : ''}`}>
+                {slide.isNewYear ? (
+                  <h1 className="hero-slide-title">
+                    Bengal's biggest <span className="momo-highlight">momo</span> franchise
+                  </h1>
+                ) : (
+                  <>
+                    <h1 className="hero-slide-title">{slide.title}</h1>
+                    <button className="btn btn-primary" onClick={() => scrollToSection('menu')}>
+                      Know More
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           ))}
@@ -184,18 +283,18 @@ const Home = () => {
       <section className="marquee-section">
         <div className="marquee-container">
           <div className="marquee-content marquee-text">
-            <span>CrunchJunction ⠀⠀✪</span>
-            <span>India Ka Crunchy Food ⠀⠀✪</span>
-            <span>Crunch Munch Repeat ⠀✪</span>
-            <span>CrunchJunction ⠀⠀✪</span>
-            <span>India Ka Crunchy Food ⠀⠀✪</span>
-            <span>Crunch Munch Repeat ⠀✪</span>
-            <span>CrunchJunction ⠀⠀✪</span>
-            <span>India Ka Crunchy Food ⠀⠀✪</span>
-            <span>Crunch Munch Repeat ⠀✪</span>
-            <span>CrunchJunction ⠀⠀✪</span>
-            <span>India Ka Crunchy Food ⠀⠀✪</span>
-            <span>Crunch Munch Repeat ⠀✪</span>
+            <span>CrunchJunction ⠀⠀🍴</span>
+            <span>India Ka Crunchy Food ⠀⠀🍴</span>
+            <span>Crunch Munch Repeat ⠀🍴</span>
+            <span>CrunchJunction ⠀⠀🍴</span>
+            <span>India Ka Crunchy Food ⠀⠀🍴</span>
+            <span>Crunch Munch Repeat ⠀🍴</span>
+            <span>CrunchJunction ⠀⠀🍴</span>
+            <span>India Ka Crunchy Food ⠀⠀🍴</span>
+            <span>Crunch Munch Repeat ⠀🍴</span>
+            <span>CrunchJunction ⠀⠀🍴</span>
+            <span>India Ka Crunchy Food ⠀⠀🍴</span>
+            <span>Crunch Munch Repeat ⠀🍴</span>
           </div>
         </div>
       </section>
@@ -204,29 +303,54 @@ const Home = () => {
       <section className={`featured-section ${featuredVisible ? 'animate' : ''}`} ref={featuredRef}>
         <div className="container">
           <h2 className="section-title featured-title">
-            <span className="title-line-1">Taste the</span>
-            <span className="title-line-2 accent-text">Crunchy Magic!</span>
-            <span className="title-line-3">Discover Our Signature Delights</span>
+            <span className="title-line-1">Taste the </span>
+            <span className="title-line-2 accent-text"> Crunchy Magic!</span>
+            <span className="title-line-3"> Discover Our Signature Delights</span>
           </h2>
-          <div className="featured-grid">
-            {featuredItems.map((item, index) => (
+          <div 
+            className="featured-carousel-wrapper"
+            onMouseEnter={() => setIsFeaturedHovered(true)}
+            onMouseLeave={() => setIsFeaturedHovered(false)}
+          >
+            <button 
+              className="featured-nav-btn featured-nav-prev" 
+              onClick={handleFeaturedPrev}
+              aria-label="Previous items"
+            >
+              ‹
+            </button>
+            <div className="featured-carousel-container">
               <div 
-                key={item.id} 
-                className={`featured-card ${featuredVisible ? 'animate' : ''}`}
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="featured-grid featured-carousel"
+                style={{ transform: `translateX(-${featuredIndex * (100 / itemsPerView)}%)` }}
               >
-                <div className="featured-image">
-                  <img src={item.image} alt={item.name} loading="lazy" />
-                  <div className="featured-overlay"></div>
-                </div>
-                <div className="featured-content">
-                  <h3>{item.name}</h3>
-                  <button className="btn btn-secondary btn-sm" onClick={() => scrollToSection('menu')}>
-                    Know More
-                  </button>
-                </div>
+                {featuredItems.map((item, index) => (
+                  <div 
+                    key={item.id} 
+                    className={`featured-card ${featuredVisible ? 'animate' : ''}`}
+                    style={{ animationDelay: `${index * 0.15}s` }}
+                  >
+                    <div className="featured-image">
+                      <img src={item.image} alt={item.name} loading="lazy" />
+                      <div className="featured-overlay"></div>
+                    </div>
+                    <div className="featured-content">
+                      <h3>{item.name}</h3>
+                      <button className="btn btn-secondary btn-sm" onClick={() => scrollToSection('menu')}>
+                        Know More
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <button 
+              className="featured-nav-btn featured-nav-next" 
+              onClick={handleFeaturedNext}
+              aria-label="Next items"
+            >
+              ›
+            </button>
           </div>
           <div className="view-all-wrapper">
             <button className={`btn btn-primary view-all-btn ${featuredVisible ? 'animate' : ''}`} onClick={() => scrollToSection('menu')}>
@@ -239,15 +363,15 @@ const Home = () => {
       {/* Full Menu Section */}
       <section id="menu" className={`menu-section ${menuVisible ? 'animate' : ''}`} ref={menuRef}>
         <div className="container">
-          <div className="menu-header-sticky">
-            <div className="menu-hero-inline sticky-title">
-              <h2 className="section-title menu-title">
-                <span className="title-part-1">Explore Our</span>
-                <span className="title-part-2 accent-text">Delicious Menu</span>
-                <span className="title-part-3">Every Bite is a Celebration!</span>
-              </h2>
-            </div>
-            
+          <div className="menu-hero-inline">
+            <h2 className="section-title menu-title">
+              <span className="title-part-1">Explore Our </span>
+              <span className="title-part-2 accent-text"> Delicious Menu</span>
+              <span className="title-part-3"> Every Bite is a Celebration!</span>
+            </h2>
+          </div>
+          
+          <div className="menu-categories-sticky">
             <div className="menu-categories">
               {[
                 { id: 'all', name: 'All Items' },
@@ -268,7 +392,8 @@ const Home = () => {
             </div>
           </div>
 
-          <div className={`menu-grid ${isTransitioning ? 'transitioning' : ''}`}>
+          <div className={`menu-grid-container ${isTransitioning ? 'transitioning' : ''}`}>
+            <div className={`menu-grid ${isTransitioning ? 'transitioning' : ''}`}>
             {(() => {
               const allItems = [
                 // Momos
@@ -329,6 +454,37 @@ const Home = () => {
                 </div>
               ))
             })()}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className={`video-section ${videoVisible ? 'animate' : ''}`} ref={videoRef}>
+        <div className="container">
+          <h2 className="video-section-title">
+            <span className="video-title-line-1">Bengal's Leading</span>
+            <span className="video-title-line-2 accent-text">Fast Food Franchise</span>
+          </h2>
+          <div className="video-wrapper">
+            <video
+              className="video-desktop"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/videos/video_desktop.mp4" type="video/mp4" />
+            </video>
+            <video
+              className="video-mobile"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/videos/video_mobile.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>

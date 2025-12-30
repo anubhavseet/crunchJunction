@@ -54,19 +54,20 @@ const Header = () => {
         
         <nav className={`nav-left ${isMobileMenuOpen ? 'open' : ''}`}>
           <a 
-            href="#about" 
-            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-            onClick={(e) => handleNavClick(e, 'about')}
-          >
-            Our Story
-          </a>
-          <a 
             href="#menu" 
             className={`nav-link ${activeSection === 'menu' ? 'active' : ''}`}
             onClick={(e) => handleNavClick(e, 'menu')}
           >
             Menu
           </a>
+          <a 
+            href="#about" 
+            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+            onClick={(e) => handleNavClick(e, 'about')}
+          >
+            Our Story
+          </a>
+          
           <a 
             href="#contact" 
             className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
@@ -77,14 +78,11 @@ const Header = () => {
         </nav>
         
         <a href="#home" className="logo" onClick={(e) => handleNavClick(e, 'home')}>
-          <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" className="logo-image" />
           <span className="logo-text"><span className="logo-accent">Crunch</span><span className="logo-junction">Junction</span></span>
         </a>
         
         <div className="header-right">
-          <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="header-right-logo">
-            <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" className="logo-image-side" />
-          </a>
+        
           <button className="btn btn-primary" onClick={(e) => handleNavClick(e, 'contact')}>
             Get Franchise
           </button>
