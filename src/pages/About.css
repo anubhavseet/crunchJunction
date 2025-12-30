@@ -1,0 +1,216 @@
+.about-page {
+  min-height: 100vh;
+}
+
+.about-hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.about-story {
+  padding: 4rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-story.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.story-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.story-content h2 {
+  font-size: 2.5rem;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.story-content p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.about-values {
+  padding: 4rem 0;
+  background: var(--light-color);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-values.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.value-card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover::before {
+  transform: scaleX(1);
+}
+
+.value-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-strong);
+}
+
+.value-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.value-card:hover .value-icon {
+  transform: scale(1.2) rotate(10deg);
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1.2) rotate(10deg) translateY(0); }
+  50% { transform: scale(1.2) rotate(10deg) translateY(-10px); }
+}
+
+.value-card h3 {
+  font-size: 1.4rem;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.value-card p {
+  color: var(--text-light);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.about-mission {
+  padding: 4rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-mission.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mission-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, var(--light-color) 0%, rgba(255, 107, 53, 0.05) 100%);
+  padding: 3rem;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.mission-content:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.02);
+}
+
+.mission-content h2 {
+  font-size: 2.5rem;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+}
+
+.mission-text {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .story-content h2,
+  .mission-content h2 {
+    font-size: 2rem;
+  }
+
+  .story-content p {
+    text-align: left;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-content {
+    padding: 2rem;
+  }
+
+  .mission-text {
+    font-size: 1rem;
+  }
+}
+
