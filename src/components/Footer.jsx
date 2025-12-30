@@ -22,7 +22,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Crunch<span className="logo-accent">Junction</span></h3>
+            <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" className="footer-logo" />
             <p>Fresh, crunchy, and delicious fast food. Premium quality at affordable prices.</p>
           </div>
           
@@ -40,9 +40,9 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Contact Info</h4>
             <ul>
-              <li>📍 123 Food Street, City Center</li>
-              <li>📞 +1 (555) 123-4567</li>
-              <li>✉️ info@crunchjunction.com</li>
+              <li>📍 M.G road, Buno kali tala, Chinsurah, Hooghly 712101</li>
+              <li>📞 +91 8240745998</li>
+              <li>✉️ crunchjunction2025@gmail.com</li>
             </ul>
           </div>
           

@@ -22,7 +22,7 @@ const Contact = () => {
                 <span className="info-icon">📍</span>
                 <div>
                   <p className="info-label">Address</p>
-                  <p className="info-value">123 Food Street<br />City Center, State 12345</p>
+                  <p className="info-value">M.G road, Buno kali tala<br />Chinsurah, Hooghly 712101</p>
                 </div>
               </div>
             </div>
@@ -33,14 +33,14 @@ const Contact = () => {
                 <span className="info-icon">📞</span>
                 <div>
                   <p className="info-label">Phone</p>
-                  <p className="info-value"><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                  <p className="info-value"><a href="tel:+918240745998">+91 8240745998</a></p>
                 </div>
               </div>
               <div className="info-item">
                 <span className="info-icon">✉️</span>
                 <div>
                   <p className="info-label">Email</p>
-                  <p className="info-value"><a href="mailto:info@crunchjunction.com">info@crunchjunction.com</a></p>
+                  <p className="info-value"><a href="mailto:crunchjunction2025@gmail.com">crunchjunction2025@gmail.com</a></p>
                 </div>
               </div>
             </div>

@@ -43,6 +43,7 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [activeCategory, setActiveCategory] = useState('all')
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isJourneyHovered, setIsJourneyHovered] = useState(false)
   const [menuRef, menuVisible] = useScrollAnimation({ threshold: 0.1 })
   const [featuredRef, featuredVisible] = useScrollAnimation({ threshold: 0.2 })
   const [aboutRef, aboutVisible] = useScrollAnimation({ threshold: 0.1 })
@@ -369,35 +370,55 @@ const Home = () => {
       {/* About Section */}
       <section id="about" className={`about-section ${aboutVisible ? 'animate' : ''}`} ref={aboutRef}>
         <div className="container">
-          <div className="about-hero-section">
-            <h2 className="section-title">Our <span className="accent-text">Inspiring</span> Journey</h2>
-          </div>
-          
-          <div className="about-content">
-            <div className="about-text-content">
-              <div className="about-year-badge">
-                <span className="year-text">Since 2019'</span>
+          <div className={`journey-container ${isJourneyHovered ? 'hovered' : ''}`}>
+            <div 
+              className="journey-logo-wrapper"
+              onMouseEnter={() => setIsJourneyHovered(true)}
+              onMouseLeave={() => setIsJourneyHovered(false)}
+            >
+              <img 
+                src="/images/crunch_junction_logo_3d.svg" 
+                alt="CrunchJunction" 
+                className="journey-logo" 
+              />
+            </div>
+            
+            <div 
+              className="journey-content-wrapper"
+              onMouseEnter={() => setIsJourneyHovered(true)}
+              onMouseLeave={() => setIsJourneyHovered(false)}
+            >
+              <div className="journey-content">
+                <div className="journey-content-left">
+                  <div className="about-year-badge">
+                    <span className="year-text">Since 2019'</span>
+                  </div>
+                  <div className="about-story-text">
+                    <p>
+                      Our story is one of passion, people, and purpose. From the vibrant lanes of the city center 
+                      to neighborhoods across the region, we've grown into multiple locations - each one a joyful 
+                      step in our journey to connect hearts, build trust, and create something truly meaningful together.
+                    </p>
+                    <p>
+                      What started as a small dream in 2019 has blossomed into a beloved brand that brings people 
+                      together through the joy of delicious, crunchy food. We believe in using only the freshest 
+                      ingredients, prepared with love and served with a smile. Every dish tells a story, and every 
+                      customer becomes part of our extended family.
+                    </p>
+                  </div>
+                  <button className="btn btn-secondary">Read More</button>
+                </div>
+                
+                <div className="journey-content-right">
+                  <div className="journey-logo-right">
+                    <img 
+                      src="/images/crunch_junction_logo_3d.svg" 
+                      alt="CrunchJunction" 
+                      className="journey-logo-expanded" 
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="about-story-text">
-                <p>
-                  Our story is one of passion, people, and purpose. From the vibrant lanes of the city center 
-                  to neighborhoods across the region, we've grown into multiple locations - each one a joyful 
-                  step in our journey to connect hearts, build trust, and create something truly meaningful together.
-                </p>
-                <p>
-                  What started as a small dream in 2019 has blossomed into a beloved brand that brings people 
-                  together through the joy of delicious, crunchy food. We believe in using only the freshest 
-                  ingredients, prepared with love and served with a smile. Every dish tells a story, and every 
-                  customer becomes part of our extended family.
-                </p>
-                <p>
-                  Today, CrunchJunction stands as a testament to what can be achieved when passion meets dedication. 
-                  We're not just serving food - we're creating experiences, building communities, and spreading 
-                  happiness one crunchy bite at a time. Join us on this incredible journey as we continue to grow, 
-                  innovate, and bring the best of India's crunchy food culture to your table.
-                </p>
-              </div>
-              <button className="btn btn-secondary">Read More</button>
             </div>
           </div>
         </div>
@@ -486,80 +507,63 @@ const Home = () => {
           <p className="section-subtitle">Ready to start your CrunchJunction journey? Whether you want to order or partner with us, we're here to help!</p>
           <div className="contact-content-wrapper">
             <div className="contact-info-section">
-              <div className="info-section">
-                <h3>Visit Us</h3>
-                <div className="info-item">
-                  <span className="info-icon">📍</span>
-                  <div>
-                    <p className="info-label">Address</p>
-                    <p className="info-value">123 Food Street<br />City Center, State 12345</p>
-                  </div>
+              <div className="info-item">
+                <span className="info-icon">📍</span>
+                <div>
+                  <p className="info-label">Address</p>
+                  <p className="info-value">M.G road, Buno kali tala, Chinsurah, Hooghly 712101</p>
                 </div>
               </div>
 
-              <div className="info-section">
-                <h3>Contact Information</h3>
-                <div className="info-item">
-                  <span className="info-icon">📞</span>
-                  <div>
-                    <p className="info-label">Phone</p>
-                    <p className="info-value"><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
-                  </div>
-                </div>
-                <div className="info-item">
-                  <span className="info-icon">✉️</span>
-                  <div>
-                    <p className="info-label">Email</p>
-                    <p className="info-value"><a href="mailto:info@crunchjunction.com">info@crunchjunction.com</a></p>
-                  </div>
+              <div className="info-item">
+                <span className="info-icon">📞</span>
+                <div>
+                  <p className="info-label">Phone</p>
+                  <p className="info-value"><a href="tel:+918240745998">+91 8240745998</a></p>
                 </div>
               </div>
 
-              <div className="info-section">
-                <h3>Opening Hours</h3>
-                <div className="hours-list">
-                  <div className="hours-item">
-                    <span className="hours-day">Monday - Thursday</span>
-                    <span className="hours-time">11:00 AM - 10:00 PM</span>
-                  </div>
-                  <div className="hours-item">
-                    <span className="hours-day">Friday - Saturday</span>
-                    <span className="hours-time">11:00 AM - 11:00 PM</span>
-                  </div>
-                  <div className="hours-item">
-                    <span className="hours-day">Sunday</span>
-                    <span className="hours-time">12:00 PM - 9:00 PM</span>
-                  </div>
+              <div className="info-item">
+                <span className="info-icon">✉️</span>
+                <div>
+                  <p className="info-label">Email</p>
+                  <p className="info-value"><a href="mailto:crunchjunction2025@gmail.com">crunchjunction2025@gmail.com</a></p>
                 </div>
               </div>
             </div>
 
-            <div className="contact-form-section">
-              <h3>Send Us a Message</h3>
-              <form className="contact-form">
-                <div className="form-group">
-                  <input type="text" placeholder="Name" required />
+            <div className="directors-section-wrapper">
+              <div className="info-section directors-section">
+                <h3>Our Directors</h3>
+                <div className="directors-grid">
+                  <div className="director-card">
+                    <div className="director-image-wrapper">
+                      <img 
+                        src="/images/Amit_Kumar_Dasgupta.jpg" 
+                        alt="Amit Kumar Dasgupta" 
+                        className="director-image"
+                      />
+                    </div>
+                    <div className="director-info">
+                      <h4 className="director-name">Amit Kumar Dasgupta</h4>
+                      <p className="director-role">Director</p>
+                    </div>
+                  </div>
+                  <div className="director-card">
+                    <div className="director-image-wrapper">
+                      <img 
+                        src="/images/Biswajit_Das.jpg" 
+                        alt="Biswajit Das" 
+                        className="director-image"
+                      />
+                    </div>
+                    <div className="director-info">
+                      <h4 className="director-name">Biswajit Das</h4>
+                      <p className="director-role">Director</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="form-group">
-                  <input type="tel" placeholder="Phone" required />
-                </div>
-                <div className="form-group">
-                  <input type="email" placeholder="Email" required />
-                </div>
-                <div className="form-group">
-                  <select required>
-                    <option value="">Select Interest</option>
-                    <option value="order">Place Order</option>
-                    <option value="catering">Catering Services</option>
-                    <option value="feedback">Customer Feedback</option>
-                    <option value="other">Other Inquiry</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <textarea placeholder="Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary">Send Message</button>
-              </form>
+              </div>
             </div>
           </div>
         </div>

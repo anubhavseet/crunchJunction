@@ -46,6 +46,12 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
+        <div className="header-left-logo">
+          <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>
+            <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" className="logo-image-side" />
+          </a>
+        </div>
+        
         <nav className={`nav-left ${isMobileMenuOpen ? 'open' : ''}`}>
           <a 
             href="#about" 
@@ -71,12 +77,16 @@ const Header = () => {
         </nav>
         
         <a href="#home" className="logo" onClick={(e) => handleNavClick(e, 'home')}>
+          <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" className="logo-image" />
           <span className="logo-text"><span className="logo-accent">Crunch</span><span className="logo-junction">Junction</span></span>
         </a>
         
         <div className="header-right">
+          <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="header-right-logo">
+            <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" className="logo-image-side" />
+          </a>
           <button className="btn btn-primary" onClick={(e) => handleNavClick(e, 'contact')}>
-            Order Now
+            Get Franchise
           </button>
         </div>
 
