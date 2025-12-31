@@ -527,6 +527,85 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Location Carousel Section */}
+      <section className="location-carousel-section">
+        <div className="container">
+          <div className="location-carousel-wrapper">
+            {/* Scrolling location cards */}
+            <div className="location-carousel-track">
+              {/* First set of locations */}
+              <div className="location-card">
+                <span className="location-name">HOOGHLY</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">WEST BURDWAN</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">EAST BURDWAN</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">SOUTH 24 PARGANA</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">HOWRAH</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">NADIA</span>
+              </div>
+              {/* Duplicate set for seamless loop */}
+              <div className="location-card">
+                <span className="location-name">HOOGHLY</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">WEST BURDWAN</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">EAST BURDWAN</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">SOUTH 24 PARGANA</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">HOWRAH</span>
+              </div>
+              <div className="location-card">
+                <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
+                <span className="location-name">NADIA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section - Why Choose Us */}
       <section className="stats-section">
         <div className="container">
@@ -556,6 +635,42 @@ const Home = () => {
               <h2 className="stat-number">6-8</h2>
               <h3 className="stat-title">Proven Strategies</h3>
               <p className="stat-description">With organized system</p>
+            </div>
+          </div>
+
+          {/* Franchise Banner */}
+          <div className="franchise-banner">
+            <div className="franchise-banner-content">
+              <h2 className="franchise-banner-title">
+                Partnered more than <span className="franchise-highlight">100 business</span> Leaders into profit
+              </h2>
+              <p className="franchise-banner-description">
+                Join our network of successful franchise partners and build a profitable business with CrunchJunction's proven model and unwavering support.
+              </p>
+              <div className="franchise-banner-buttons">
+                <button 
+                  className="btn btn-franchise-primary"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToSection('contact')
+                  }}
+                >
+                  Become a Franchise Partner
+                </button>
+                <button 
+                  className="btn btn-franchise-secondary"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    // Download franchise brochure - you can add the actual PDF link here
+                    const link = document.createElement('a')
+                    link.href = '/franchise-brochure.pdf' // Update with actual brochure path
+                    link.download = 'CrunchJunction-Franchise-Brochure.pdf'
+                    link.click()
+                  }}
+                >
+                  Download Franchise Brochure
+                </button>
+              </div>
             </div>
           </div>
         </div>
