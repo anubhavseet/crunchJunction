@@ -435,36 +435,36 @@ const Home = () => {
             {(() => {
               const allItems = [
                 // Momos
-                { name: 'Chicken Steam Momo', description: 'Delicious steamed chicken momos served with tangy dipping sauce', price: '₹50-55', category: 'momos', image: getDishImage('Chicken Steam Momo') },
-                { name: 'Veg Steam Momo', description: 'Fresh vegetable momos steamed to perfection with soup and dipping sauces', price: '₹40-45', category: 'momos', image: getDishImage('Veg Steam Momo') },
-                { name: 'Paneer Steam Momo', description: 'Soft paneer filled momos with orange-red dipping sauce', price: '₹50-55', category: 'momos', image: getDishImage('Paneer Steam Momo') },
-                { name: 'Veg Cheese Momo', description: 'Golden-brown fried momos with cheese filling and special sauce', price: '₹60-65', category: 'momos', image: getDishImage('Veg Cheese Momo') },
-                { name: 'Chicken Cheese Momo', description: 'Mixed steamed and fried momos with cheese and chicken filling', price: '₹70', category: 'momos', image: getDishImage('Chicken Cheese Momo') },
-                { name: 'Mutton Momo', description: 'Crispy fried mutton momos with chunky chutney', price: '₹80', category: 'momos', image: getDishImage('Mutton Momo') },
-                { name: 'Fish Momo', description: 'Golden-brown fried fish momos with yellowish-green dipping sauce', price: '₹70', category: 'momos', image: getDishImage('Fish Momo') },
-                { name: 'Prawn Momo', description: 'Crispy fried prawn momos with orange-red dipping sauce', price: '₹75', category: 'momos', image: getDishImage('Prawn Momo') },
-                { name: 'Gandharaj Chicken Momo', description: 'Steamed chicken momos with special gandharaj flavor and dipping sauce', price: '₹60', category: 'momos', image: getDishImage('Gandharaj Chicken Momo') },
-                { name: 'Sweet Corn Cheese Momo', description: 'Fresh steamed momos with sweet corn and cheese filling', price: '₹70', category: 'momos', image: getDishImage('Sweet Corn Cheese Momo') },
+                { name: 'Chicken Steam Momo', description: 'Delicious steamed chicken momos served with tangy dipping sauce', price: '₹33', category: 'momos', image: getDishImage('Chicken Steam Momo') },
+                { name: 'Veg Steam Momo', description: 'Fresh vegetable momos steamed to perfection with soup and dipping sauces', price: '₹27.50', category: 'momos', image: getDishImage('Veg Steam Momo') },
+                { name: 'Paneer Steam Momo', description: 'Soft paneer filled momos with orange-red dipping sauce', price: '₹33', category: 'momos', image: getDishImage('Paneer Steam Momo') },
+                { name: 'Veg Cheese Momo', description: 'Golden-brown fried momos with cheese filling and special sauce', price: '₹38.50', category: 'momos', image: getDishImage('Veg Cheese Momo') },
+                { name: 'Chicken Cheese Momo', description: 'Mixed steamed and fried momos with cheese and chicken filling', price: '₹40', category: 'momos', image: getDishImage('Chicken Cheese Momo') },
+                { name: 'Mutton Momo', description: 'Crispy fried mutton momos with chunky chutney', price: '₹55', category: 'momos', image: getDishImage('Mutton Momo') },
+                { name: 'Fish Momo', description: 'Golden-brown fried fish momos with yellowish-green dipping sauce', price: '₹44', category: 'momos', image: getDishImage('Fish Momo') },
+                { name: 'Prawn Momo', description: 'Crispy fried prawn momos with orange-red dipping sauce', price: '₹49.50', category: 'momos', image: getDishImage('Prawn Momo') },
+                { name: 'Gandharaj Chicken Momo', description: 'Steamed chicken momos with special gandharaj flavor and dipping sauce', price: '₹38.50', category: 'momos', image: getDishImage('Gandharaj Chicken Momo') },
+                { name: 'Sweet Corn Cheese Momo', description: 'Fresh steamed momos with sweet corn and cheese filling', price: '₹49.50', category: 'momos', image: getDishImage('Sweet Corn Cheese Momo') },
                 // Fish Items
-                { name: 'Fish Fry', description: 'Golden-brown fried fish served with dipping sauce and fresh garnish', price: '₹80', category: 'fish', image: getDishImage('Fish Fry') },
-                { name: 'Fish Finger', description: 'Crispy fish fingers served with ketchup and creamy dipping sauce', price: '₹30', category: 'fish', image: getDishImage('Fish Finger') },
-                { name: 'Fish Ball', description: 'Golden-brown spherical fish balls on skewers with herbs and spices', price: '₹20', category: 'fish', image: getDishImage('Fish Ball') },
-                { name: 'Fish Butter Fry', description: 'Crispy butter-fried fish pieces with textured coating', price: '₹80', category: 'fish', image: getDishImage('Fish Butter Fry') },
+                { name: 'Fish Fry', description: 'Golden-brown fried fish served with dipping sauce and fresh garnish', price: '₹55', category: 'fish', image: getDishImage('Fish Fry') },
+                { name: 'Fish Finger', description: 'Crispy fish fingers served with ketchup and creamy dipping sauce', price: '₹33', category: 'fish', image: getDishImage('Fish Finger') },
+                { name: 'Fish Ball', description: 'Golden-brown spherical fish balls on skewers with herbs and spices', price: '₹13.20', category: 'fish', image: getDishImage('Fish Ball') },
+                { name: 'Fish Butter Fry', description: 'Crispy butter-fried fish pieces with textured coating', price: '₹55', category: 'fish', image: getDishImage('Fish Butter Fry') },
                 // Paneer Items
-                { name: 'Paneer Pasinda', description: 'Breaded and fried paneer pieces with creamy dipping sauce', price: '₹30', category: 'paneer', image: getDishImage('Paneer Pasinda') },
-                { name: 'Paneer Satte', description: 'Grilled paneer skewers with bell peppers, marinated and charred', price: '₹45', category: 'paneer', image: getDishImage('Paneer Satte') },
+                { name: 'Paneer Pasinda', description: 'Breaded and fried paneer pieces with creamy dipping sauce', price: '₹22', category: 'paneer', image: getDishImage('Paneer Pasinda') },
+                { name: 'Paneer Satte', description: 'Grilled paneer skewers with bell peppers, marinated and charred', price: '₹33', category: 'paneer', image: getDishImage('Paneer Satte') },
                 // Chicken Items
-                { name: 'Chicken Cutlet', description: 'Golden-brown fried chicken cutlets with fries and dipping sauce', price: '₹30', category: 'chicken', image: getDishImage('Chicken Cutlet') },
-                { name: 'Chicken Satte', description: 'Grilled chicken skewers with bell peppers, herbs, and spices', price: '₹45', category: 'chicken', image: getDishImage('Chicken Satte') },
-                { name: 'Chicken Cheese Ball', description: 'Breaded chicken cheese balls with creamy filling and dipping sauce', price: '₹25', category: 'chicken', image: getDishImage('Chicken Cheese Ball') },
-                { name: 'Chicken Wings', description: 'Crispy golden-brown fried chicken wings', price: '₹50', category: 'chicken', image: getDishImage('Chicken Wings') },
-                { name: 'Chicken Leg', description: 'Roasted chicken legs with lemon wedges and fresh herbs', price: '₹90', category: 'chicken', image: getDishImage('Chicken Leg') },
-                { name: 'Chicken Kabul Roll', description: 'Crispy golden rolls with savory chicken filling and dipping sauces', price: '₹45', category: 'chicken', image: getDishImage('Chicken Kabul Roll') },
+                { name: 'Chicken Cutlet', description: 'Golden-brown fried chicken cutlets with fries and dipping sauce', price: '₹22', category: 'chicken', image: getDishImage('Chicken Cutlet') },
+                { name: 'Chicken Satte', description: 'Grilled chicken skewers with bell peppers, herbs, and spices', price: '₹33', category: 'chicken', image: getDishImage('Chicken Satte') },
+                { name: 'Chicken Cheese Ball', description: 'Breaded chicken cheese balls with creamy filling and dipping sauce', price: '₹18.50', category: 'chicken', image: getDishImage('Chicken Cheese Ball') },
+                { name: 'Chicken Wings', description: 'Crispy golden-brown fried chicken wings', price: '₹38.50', category: 'chicken', image: getDishImage('Chicken Wings') },
+                { name: 'Chicken Leg', description: 'Roasted chicken legs with lemon wedges and fresh herbs', price: '₹66', category: 'chicken', image: getDishImage('Chicken Leg') },
+                { name: 'Chicken Kabul Roll', description: 'Crispy golden rolls with savory chicken filling and dipping sauces', price: '₹33', category: 'chicken', image: getDishImage('Chicken Kabul Roll') },
                 // Snacks
-                { name: 'Egg Devil', description: 'Deep-fried breaded eggs with spiced filling and tangy sauce', price: '₹25', category: 'snacks', image: getDishImage('Egg Devil') },
-                { name: 'Veg Spring Roll', description: 'Golden-brown crispy spring rolls with vegetable filling', price: '₹40', category: 'snacks', image: getDishImage('Veg Spring Roll') },
-                { name: 'Chicken & Paneer Spring Roll', description: 'Large wraps with chicken, paneer, lettuce, and creamy sauce', price: '₹55', category: 'snacks', image: getDishImage('Chicken & Paneer Spring Roll') },
-                { name: 'Cheese Chicken Spring Roll', description: 'Crispy fried spring rolls with chicken and cheese filling', price: '₹80', category: 'snacks', image: getDishImage('Cheese Chicken Spring Roll') },
+                { name: 'Egg Devil', description: 'Deep-fried breaded eggs with spiced filling and tangy sauce', price: '₹16.40', category: 'snacks', image: getDishImage('Egg Devil') },
+                { name: 'Veg Spring Roll', description: 'Golden-brown crispy spring rolls with vegetable filling', price: '₹27.50', category: 'snacks', image: getDishImage('Veg Spring Roll') },
+                { name: 'Chicken & Paneer Spring Roll', description: 'Large wraps with chicken, paneer, lettuce, and creamy sauce', price: '₹38.50', category: 'snacks', image: getDishImage('Chicken & Paneer Spring Roll') },
+                { name: 'Cheese Chicken Spring Roll', description: 'Crispy fried spring rolls with chicken and cheese filling', price: '₹60', category: 'snacks', image: getDishImage('Cheese Chicken Spring Roll') },
                 { name: 'Chicken Burger Patty', description: 'Grilled chicken burger patties with herbs and spices', price: '₹22', category: 'snacks', image: getDishImage('Chicken Burger Patty') },
                 { name: 'Veg Burger Patty', description: 'Vegetable burger patties with peas and mixed vegetables', price: '₹18', category: 'snacks', image: getDishImage('Veg Burger Patty') },
                 { name: 'Pizza Bread', description: 'Bread topped with melted cheese, pepperoni, and herbs', price: '₹20', category: 'snacks', image: getDishImage('Pizza Bread') },
@@ -504,26 +504,26 @@ const Home = () => {
             <span className="video-title-line-1">Bengal's Leading</span>
             <span className="video-title-line-2 accent-text">Fast Food Franchise</span>
           </h2>
-          <div className="video-wrapper">
-            <video
-              className="video-desktop"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="/videos/video_desktop.mp4" type="video/mp4" />
-            </video>
-            <video
-              className="video-mobile"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="/videos/video_mobile.mp4" type="video/mp4" />
-            </video>
-          </div>
+        </div>
+        <div className="video-wrapper">
+          <video
+            className="video-desktop"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/video_desktop.mp4" type="video/mp4" />
+          </video>
+          <video
+            className="video-mobile"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/video_mobile.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
@@ -535,6 +535,9 @@ const Home = () => {
             <div className="location-carousel-track">
               {/* First set of locations */}
               <div className="location-card">
+              <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
                 <span className="location-name">HOOGHLY</span>
               </div>
               <div className="location-card">
@@ -569,6 +572,9 @@ const Home = () => {
               </div>
               {/* Duplicate set for seamless loop */}
               <div className="location-card">
+              <div className="location-logo">
+                  <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
+                </div>
                 <span className="location-name">HOOGHLY</span>
               </div>
               <div className="location-card">
