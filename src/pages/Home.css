@@ -2428,6 +2428,23 @@
     text-align: center;
   }
 
+  .stats-section {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .stat-card {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .stat-card:nth-child(1),
+  .stat-card:nth-child(2),
+  .stat-card:nth-child(3),
+  .stat-card:nth-child(4) {
+    animation-delay: 0s !important;
+  }
+
   .menu-categories-sticky {
     padding: 1rem 0;
     margin-bottom: 1.5rem;
@@ -2666,8 +2683,14 @@
     padding: 3rem 0;
   }
 
-  .journey-logo {
-    height: 200px;
+  .journey-logo-wrapper {
+    display: none !important;
+  }
+
+  .journey-content-wrapper {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    pointer-events: all !important;
   }
 
   .journey-content {
@@ -2678,16 +2701,15 @@
 
   .journey-content-left {
     text-align: center;
-    transform: translateY(-30px);
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: none !important;
   }
 
   .journey-content-right {
-    transform: translateY(30px);
-  }
-
-  .journey-container.hovered .journey-content-left,
-  .journey-container.hovered .journey-content-right {
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: none !important;
   }
 
   .journey-logo-expanded {
