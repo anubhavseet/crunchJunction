@@ -103,7 +103,7 @@ const Header = () => {
             handleNavClick(e, 'contact')
             setIsMobileMenuOpen(false)
           }}>
-            Order Now
+            Get Franchise
           </button>
         </div>
       </div>

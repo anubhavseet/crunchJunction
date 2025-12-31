@@ -299,6 +299,44 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Get Franchise Marquee Section */}
+      <section className="franchise-marquee-section">
+        <div className="franchise-marquee-container">
+          <div className="franchise-marquee-content">
+            <span className="franchise-icon">🍴</span>
+            <span>Get Franchise</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Join CrunchJunction</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Build Your Business</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Get Franchise</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Join CrunchJunction</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Build Your Business</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Get Franchise</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Join CrunchJunction</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Build Your Business</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Get Franchise</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Join CrunchJunction</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Build Your Business</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Get Franchise</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Join CrunchJunction</span>
+            <span className="franchise-icon">🍴</span>
+            <span>Build Your Business</span>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Items */}
       <section className={`featured-section ${featuredVisible ? 'animate' : ''}`} ref={featuredRef}>
         <div className="container">

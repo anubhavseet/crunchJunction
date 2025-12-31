@@ -1,5 +1,8 @@
 .home {
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Rotating Background Animation */
@@ -242,6 +245,7 @@
   padding: 1.5rem 0;
   overflow: hidden;
   position: relative;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .marquee-container {
@@ -254,6 +258,51 @@
   gap: 3rem;
   animation: marquee 30s linear infinite;
   white-space: nowrap;
+}
+
+/* Franchise CTA Section */
+/* Franchise Marquee Section */
+.franchise-marquee-section {
+  background: var(--dark-color);
+  color: var(--white);
+  padding: 1.5rem 0;
+  overflow: hidden;
+  position: relative;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.franchise-marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.franchise-marquee-content {
+  display: flex;
+  gap: 3rem;
+  animation: franchiseMarquee 25s linear infinite;
+  white-space: nowrap;
+}
+
+.franchise-marquee-content span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.franchise-marquee-content .franchise-icon {
+  font-size: 1.5rem;
+  color: #a78bfa;
+  flex-shrink: 0;
+}
+
+@keyframes franchiseMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-content span {
@@ -715,7 +764,7 @@
 }
 
 .featured-carousel-container {
-  overflow: visible;
+  overflow: hidden;
   position: relative;
   width: 100%;
   padding-top: 20px;
@@ -740,6 +789,53 @@
   flex: 0 0 calc(30% - 1.5rem);
   min-width: 0;
   margin-right: 2rem;
+  box-sizing: border-box;
+}
+
+/* Mobile: 1 card centered */
+@media (max-width: 768px) {
+  .featured-carousel-wrapper {
+    padding: 0 1rem;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .featured-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .featured-grid.featured-carousel {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .featured-grid.featured-carousel .featured-card {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .featured-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    z-index: 10;
+  }
+
+  .featured-nav-prev {
+    left: 5px;
+  }
+
+  .featured-nav-next {
+    right: 5px;
+  }
 }
 
 .featured-nav-btn {
@@ -2146,6 +2242,7 @@
 
   .featured-grid.featured-carousel .featured-card {
     flex: 0 0 calc(50% - 1rem);
+    margin-right: 1rem;
   }
 
   .featured-nav-btn {
@@ -2160,6 +2257,51 @@
 
   .featured-nav-next {
     right: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-carousel-wrapper {
+    padding: 0 1rem;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .featured-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .featured-grid.featured-carousel {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .featured-grid.featured-carousel .featured-card {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .featured-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    z-index: 10;
+  }
+
+  .featured-nav-prev {
+    left: 5px;
+  }
+
+  .featured-nav-next {
+    right: 5px;
   }
 }
 

@@ -10,6 +10,9 @@
   z-index: 1000;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 1px solid rgba(255, 204, 12, 0.1);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .header.scrolled {
@@ -33,6 +36,7 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 95%;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -246,12 +250,24 @@
     height: 40px;
   }
 
+  .logo {
+    font-size: 1.5rem;
+  }
+
   .mobile-menu-toggle {
     display: flex;
+    order: 3;
   }
 
   .mobile-header-right {
     display: block;
+    order: 2;
+  }
+
+  .mobile-header-right .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 
   .header-right {
@@ -259,8 +275,13 @@
   }
 
   .header .container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr auto auto;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 1rem 15px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .header-left-logo {
@@ -269,6 +290,11 @@
 
   .header-right-logo {
     display: none;
+  }
+
+  .logo {
+    order: 1;
+    justify-self: start;
   }
 
   .nav-left {
