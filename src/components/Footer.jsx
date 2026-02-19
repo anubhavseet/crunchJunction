@@ -25,7 +25,7 @@ const Footer = () => {
             <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" className="footer-logo" />
             <p>Fresh, crunchy, and delicious fast food. Premium quality at affordable prices.</p>
           </div>
-          
+
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul>
@@ -36,16 +36,17 @@ const Footer = () => {
               <li><a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a></li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Contact Info</h4>
+            <h4 className='info-label'>Olivento Pvt Ltd</h4>
             <ul>
               <li>📍 M.G road, Buno kali tala, Chinsurah, Hooghly 712101</li>
               <li>📞 +91 8240745998</li>
               <li>✉️ crunchjunction2025@gmail.com</li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Hours</h4>
             <ul>
@@ -55,7 +56,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} CrunchJunction. All rights reserved.</p>
         </div>

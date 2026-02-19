@@ -57,11 +57,11 @@ const Home = () => {
     {
       id: 1,
       title: "Bengal's biggest momo franchise",
-      image: '/images/new_year_2026.png',
-      mobileImage: '/images/new_year_2026_mobile.png',
+      image: '/images/NewHero.jpg',
+      mobileImage: '/images/NewHeroMobile.jpeg',
       isNewYear: true
     },
-  
+
     {
       id: 2,
       title: 'Delicious Momos & More',
@@ -152,7 +152,7 @@ const Home = () => {
   // Auto-rotate featured carousel
   useEffect(() => {
     if (isFeaturedHovered) return // Pause on hover
-    
+
     const interval = setInterval(() => {
       setFeaturedIndex((prev) => {
         const next = prev + 1
@@ -201,7 +201,7 @@ const Home = () => {
           if (window.innerWidth >= 769) {
             slide.style.backgroundImage = `url(${desktopImage})`
           } else {
-            slide.style.backgroundImage = `url(/images/new_year_2026_mobile.png)`
+            slide.style.backgroundImage = `url(/images/NewHeroMobile.jpeg)`
           }
         }
       })
@@ -245,8 +245,8 @@ const Home = () => {
               key={slide.id}
               className={`hero-slide ${index === currentSlide ? 'active' : ''} ${slide.isNewYear ? 'new-year-slide' : ''}`}
               style={{
-                backgroundImage: slide.mobileImage 
-                  ? `url(${slide.mobileImage})` 
+                backgroundImage: slide.mobileImage
+                  ? `url(${slide.mobileImage})`
                   : `url(${slide.image})`
               }}
               data-desktop-image={slide.mobileImage ? slide.image : undefined}
@@ -345,26 +345,26 @@ const Home = () => {
             <span className="title-line-2 accent-text"> Crunchy Magic!</span>
             <span className="title-line-3"> Discover Our Signature Delights</span>
           </h2>
-          <div 
+          <div
             className="featured-carousel-wrapper"
             onMouseEnter={() => setIsFeaturedHovered(true)}
             onMouseLeave={() => setIsFeaturedHovered(false)}
           >
-            <button 
-              className="featured-nav-btn featured-nav-prev" 
+            <button
+              className="featured-nav-btn featured-nav-prev"
               onClick={handleFeaturedPrev}
               aria-label="Previous items"
             >
               ‹
             </button>
             <div className="featured-carousel-container">
-              <div 
+              <div
                 className="featured-grid featured-carousel"
                 style={{ transform: `translateX(-${featuredIndex * (100 / itemsPerView)}%)` }}
               >
                 {featuredItems.map((item, index) => (
-                  <div 
-                    key={item.id} 
+                  <div
+                    key={item.id}
                     className={`featured-card ${featuredVisible ? 'animate' : ''}`}
                     style={{ animationDelay: `${index * 0.15}s` }}
                   >
@@ -382,8 +382,8 @@ const Home = () => {
                 ))}
               </div>
             </div>
-            <button 
-              className="featured-nav-btn featured-nav-next" 
+            <button
+              className="featured-nav-btn featured-nav-next"
               onClick={handleFeaturedNext}
               aria-label="Next items"
             >
@@ -408,7 +408,7 @@ const Home = () => {
               <span className="title-part-3"> Every Bite is a Celebration!</span>
             </h2>
           </div>
-          
+
           <div className="menu-categories-sticky">
             <div className="menu-categories">
               {[
@@ -432,66 +432,66 @@ const Home = () => {
 
           <div className={`menu-grid-container ${isTransitioning ? 'transitioning' : ''}`}>
             <div className={`menu-grid ${isTransitioning ? 'transitioning' : ''}`}>
-            {(() => {
-              const allItems = [
-                // Momos
-                { name: 'Chicken Steam Momo', description: 'Delicious steamed chicken momos served with tangy dipping sauce', price: '₹33', category: 'momos', image: getDishImage('Chicken Steam Momo') },
-                { name: 'Veg Steam Momo', description: 'Fresh vegetable momos steamed to perfection with soup and dipping sauces', price: '₹27.50', category: 'momos', image: getDishImage('Veg Steam Momo') },
-                { name: 'Paneer Steam Momo', description: 'Soft paneer filled momos with orange-red dipping sauce', price: '₹33', category: 'momos', image: getDishImage('Paneer Steam Momo') },
-                { name: 'Veg Cheese Momo', description: 'Golden-brown fried momos with cheese filling and special sauce', price: '₹38.50', category: 'momos', image: getDishImage('Veg Cheese Momo') },
-                { name: 'Chicken Cheese Momo', description: 'Mixed steamed and fried momos with cheese and chicken filling', price: '₹40', category: 'momos', image: getDishImage('Chicken Cheese Momo') },
-                { name: 'Mutton Momo', description: 'Crispy fried mutton momos with chunky chutney', price: '₹55', category: 'momos', image: getDishImage('Mutton Momo') },
-                { name: 'Fish Momo', description: 'Golden-brown fried fish momos with yellowish-green dipping sauce', price: '₹44', category: 'momos', image: getDishImage('Fish Momo') },
-                { name: 'Prawn Momo', description: 'Crispy fried prawn momos with orange-red dipping sauce', price: '₹49.50', category: 'momos', image: getDishImage('Prawn Momo') },
-                { name: 'Gandharaj Chicken Momo', description: 'Steamed chicken momos with special gandharaj flavor and dipping sauce', price: '₹38.50', category: 'momos', image: getDishImage('Gandharaj Chicken Momo') },
-                { name: 'Sweet Corn Cheese Momo', description: 'Fresh steamed momos with sweet corn and cheese filling', price: '₹49.50', category: 'momos', image: getDishImage('Sweet Corn Cheese Momo') },
-                // Fish Items
-                { name: 'Fish Fry', description: 'Golden-brown fried fish served with dipping sauce and fresh garnish', price: '₹55', category: 'fish', image: getDishImage('Fish Fry') },
-                { name: 'Fish Finger', description: 'Crispy fish fingers served with ketchup and creamy dipping sauce', price: '₹33', category: 'fish', image: getDishImage('Fish Finger') },
-                { name: 'Fish Ball', description: 'Golden-brown spherical fish balls on skewers with herbs and spices', price: '₹13.20', category: 'fish', image: getDishImage('Fish Ball') },
-                { name: 'Fish Butter Fry', description: 'Crispy butter-fried fish pieces with textured coating', price: '₹55', category: 'fish', image: getDishImage('Fish Butter Fry') },
-                // Paneer Items
-                { name: 'Paneer Pasinda', description: 'Breaded and fried paneer pieces with creamy dipping sauce', price: '₹22', category: 'paneer', image: getDishImage('Paneer Pasinda') },
-                { name: 'Paneer Satte', description: 'Grilled paneer skewers with bell peppers, marinated and charred', price: '₹33', category: 'paneer', image: getDishImage('Paneer Satte') },
-                // Chicken Items
-                { name: 'Chicken Cutlet', description: 'Golden-brown fried chicken cutlets with fries and dipping sauce', price: '₹22', category: 'chicken', image: getDishImage('Chicken Cutlet') },
-                { name: 'Chicken Satte', description: 'Grilled chicken skewers with bell peppers, herbs, and spices', price: '₹33', category: 'chicken', image: getDishImage('Chicken Satte') },
-                { name: 'Chicken Cheese Ball', description: 'Breaded chicken cheese balls with creamy filling and dipping sauce', price: '₹18.50', category: 'chicken', image: getDishImage('Chicken Cheese Ball') },
-                { name: 'Chicken Wings', description: 'Crispy golden-brown fried chicken wings', price: '₹38.50', category: 'chicken', image: getDishImage('Chicken Wings') },
-                { name: 'Chicken Leg', description: 'Roasted chicken legs with lemon wedges and fresh herbs', price: '₹66', category: 'chicken', image: getDishImage('Chicken Leg') },
-                { name: 'Chicken Kabul Roll', description: 'Crispy golden rolls with savory chicken filling and dipping sauces', price: '₹33', category: 'chicken', image: getDishImage('Chicken Kabul Roll') },
-                // Snacks
-                { name: 'Egg Devil', description: 'Deep-fried breaded eggs with spiced filling and tangy sauce', price: '₹16.40', category: 'snacks', image: getDishImage('Egg Devil') },
-                { name: 'Veg Spring Roll', description: 'Golden-brown crispy spring rolls with vegetable filling', price: '₹27.50', category: 'snacks', image: getDishImage('Veg Spring Roll') },
-                { name: 'Chicken & Paneer Spring Roll', description: 'Large wraps with chicken, paneer, lettuce, and creamy sauce', price: '₹38.50', category: 'snacks', image: getDishImage('Chicken & Paneer Spring Roll') },
-                { name: 'Cheese Chicken Spring Roll', description: 'Crispy fried spring rolls with chicken and cheese filling', price: '₹60', category: 'snacks', image: getDishImage('Cheese Chicken Spring Roll') },
-                { name: 'Chicken Burger Patty', description: 'Grilled chicken burger patties with herbs and spices', price: '₹22', category: 'snacks', image: getDishImage('Chicken Burger Patty') },
-                { name: 'Veg Burger Patty', description: 'Vegetable burger patties with peas and mixed vegetables', price: '₹18', category: 'snacks', image: getDishImage('Veg Burger Patty') },
-                { name: 'Pizza Bread', description: 'Bread topped with melted cheese, pepperoni, and herbs', price: '₹20', category: 'snacks', image: getDishImage('Pizza Bread') },
-                { name: 'Chicken Taipo', description: 'Steamed bun with chicken filling and special sauce', price: '₹35', category: 'snacks', image: getDishImage('Chicken Taipo') }
-              ]
-              
-              const filteredItems = activeCategory === 'all' 
-                ? allItems 
-                : allItems.filter(item => item.category === activeCategory)
-              
-              return filteredItems.map((item, index) => (
-                <div 
-                  key={`${item.name}-${activeCategory}`} 
-                  className={`menu-item-card ${isTransitioning ? 'fade-out' : 'fade-in'}`}
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  <div className="menu-item-image">
-                    <img src={item.image} alt={item.name} loading="lazy" />
+              {(() => {
+                const allItems = [
+                  // Momos
+                  { name: 'Chicken Steam Momo', description: 'Delicious steamed chicken momos served with tangy dipping sauce', category: 'momos', image: getDishImage('Chicken Steam Momo') },
+                  { name: 'Veg Steam Momo', description: 'Fresh vegetable momos steamed to perfection with soup and dipping sauces', category: 'momos', image: getDishImage('Veg Steam Momo') },
+                  { name: 'Paneer Steam Momo', description: 'Soft paneer filled momos with orange-red dipping sauce', category: 'momos', image: getDishImage('Paneer Steam Momo') },
+                  { name: 'Veg Cheese Momo', description: 'Golden-brown fried momos with cheese filling and special sauce', category: 'momos', image: getDishImage('Veg Cheese Momo') },
+                  { name: 'Chicken Cheese Momo', description: 'Mixed steamed and fried momos with cheese and chicken filling', category: 'momos', image: getDishImage('Chicken Cheese Momo') },
+                  { name: 'Mutton Momo', description: 'Crispy fried mutton momos with chunky chutney', category: 'momos', image: getDishImage('Mutton Momo') },
+                  { name: 'Fish Momo', description: 'Golden-brown fried fish momos with yellowish-green dipping sauce', category: 'momos', image: getDishImage('Fish Momo') },
+                  { name: 'Prawn Momo', description: 'Crispy fried prawn momos with orange-red dipping sauce', category: 'momos', image: getDishImage('Prawn Momo') },
+                  { name: 'Gandharaj Chicken Momo', description: 'Steamed chicken momos with special gandharaj flavor and dipping sauce', category: 'momos', image: getDishImage('Gandharaj Chicken Momo') },
+                  { name: 'Sweet Corn Cheese Momo', description: 'Fresh steamed momos with sweet corn and cheese filling', category: 'momos', image: getDishImage('Sweet Corn Cheese Momo') },
+                  // Fish Items
+                  { name: 'Fish Fry', description: 'Golden-brown fried fish served with dipping sauce and fresh garnish', category: 'fish', image: getDishImage('Fish Fry') },
+                  { name: 'Fish Finger', description: 'Crispy fish fingers served with ketchup and creamy dipping sauce', category: 'fish', image: getDishImage('Fish Finger') },
+                  { name: 'Fish Ball', description: 'Golden-brown spherical fish balls on skewers with herbs and spices', category: 'fish', image: getDishImage('Fish Ball') },
+                  { name: 'Fish Butter Fry', description: 'Crispy butter-fried fish pieces with textured coating', category: 'fish', image: getDishImage('Fish Butter Fry') },
+                  // Paneer Items
+                  { name: 'Paneer Pasinda', description: 'Breaded and fried paneer pieces with creamy dipping sauce', category: 'paneer', image: getDishImage('Paneer Pasinda') },
+                  { name: 'Paneer Satte', description: 'Grilled paneer skewers with bell peppers, marinated and charred', category: 'paneer', image: getDishImage('Paneer Satte') },
+                  // Chicken Items
+                  { name: 'Chicken Cutlet', description: 'Golden-brown fried chicken cutlets with fries and dipping sauce', category: 'chicken', image: getDishImage('Chicken Cutlet') },
+                  { name: 'Chicken Satte', description: 'Grilled chicken skewers with bell peppers, herbs, and spices', category: 'chicken', image: getDishImage('Chicken Satte') },
+                  { name: 'Chicken Cheese Ball', description: 'Breaded chicken cheese balls with creamy filling and dipping sauce', category: 'chicken', image: getDishImage('Chicken Cheese Ball') },
+                  { name: 'Chicken Wings', description: 'Crispy golden-brown fried chicken wings', category: 'chicken', image: getDishImage('Chicken Wings') },
+                  { name: 'Chicken Leg', description: 'Roasted chicken legs with lemon wedges and fresh herbs', category: 'chicken', image: getDishImage('Chicken Leg') },
+                  { name: 'Chicken Kabul Roll', description: 'Crispy golden rolls with savory chicken filling and dipping sauces', category: 'chicken', image: getDishImage('Chicken Kabul Roll') },
+                  // Snacks
+                  { name: 'Egg Devil', description: 'Deep-fried breaded eggs with spiced filling and tangy sauce', category: 'snacks', image: getDishImage('Egg Devil') },
+                  { name: 'Veg Spring Roll', description: 'Golden-brown crispy spring rolls with vegetable filling', category: 'snacks', image: getDishImage('Veg Spring Roll') },
+                  { name: 'Chicken & Paneer Spring Roll', description: 'Large wraps with chicken, paneer, lettuce, and creamy sauce', category: 'snacks', image: getDishImage('Chicken & Paneer Spring Roll') },
+                  { name: 'Cheese Chicken Spring Roll', description: 'Crispy fried spring rolls with chicken and cheese filling', category: 'snacks', image: getDishImage('Cheese Chicken Spring Roll') },
+                  { name: 'Chicken Burger Patty', description: 'Grilled chicken burger patties with herbs and spices', category: 'snacks', image: getDishImage('Chicken Burger Patty') },
+                  { name: 'Veg Burger Patty', description: 'Vegetable burger patties with peas and mixed vegetables', category: 'snacks', image: getDishImage('Veg Burger Patty') },
+                  { name: 'Pizza Bread', description: 'Bread topped with melted cheese, pepperoni, and herbs', category: 'snacks', image: getDishImage('Pizza Bread') },
+                  { name: 'Chicken Taipo', description: 'Steamed bun with chicken filling and special sauce', category: 'snacks', image: getDishImage('Chicken Taipo') }
+                ]
+
+                const filteredItems = activeCategory === 'all'
+                  ? allItems
+                  : allItems.filter(item => item.category === activeCategory)
+
+                return filteredItems.map((item, index) => (
+                  <div
+                    key={`${item.name}-${activeCategory}`}
+                    className={`menu-item-card ${isTransitioning ? 'fade-out' : 'fade-in'}`}
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  >
+                    <div className="menu-item-image">
+                      <img src={item.image} alt={item.name} loading="lazy" />
+                    </div>
+                    <div className="menu-item-content">
+                      <h3>{item.name}</h3>
+                      <p className="menu-item-description">{item.description}</p>
+                      <p className="menu-item-price">{item.price}</p>
+                    </div>
                   </div>
-                  <div className="menu-item-content">
-                    <h3>{item.name}</h3>
-                    <p className="menu-item-description">{item.description}</p>
-                    <p className="menu-item-price">{item.price}</p>
-                  </div>
-                </div>
-              ))
-            })()}
+                ))
+              })()}
             </div>
           </div>
         </div>
@@ -535,7 +535,7 @@ const Home = () => {
             <div className="location-carousel-track">
               {/* First set of locations */}
               <div className="location-card">
-              <div className="location-logo">
+                <div className="location-logo">
                   <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
                 </div>
                 <span className="location-name">HOOGHLY</span>
@@ -572,7 +572,7 @@ const Home = () => {
               </div>
               {/* Duplicate set for seamless loop */}
               <div className="location-card">
-              <div className="location-logo">
+                <div className="location-logo">
                   <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" />
                 </div>
                 <span className="location-name">HOOGHLY</span>
@@ -632,7 +632,7 @@ const Home = () => {
             </div>
             <div className="stat-card">
               <div className="stat-icon">💰</div>
-              <h2 className="stat-number">₹15L</h2>
+              <h2 className="stat-number">₹2-3L</h2>
               <h3 className="stat-title">Investment Range</h3>
               <p className="stat-description">Starting investment</p>
             </div>
@@ -654,7 +654,7 @@ const Home = () => {
                 Join our network of successful franchise partners and build a profitable business with CrunchJunction's proven model and unwavering support.
               </p>
               <div className="franchise-banner-buttons">
-                <button 
+                <button
                   className="btn btn-franchise-primary"
                   onClick={(e) => {
                     e.preventDefault()
@@ -663,7 +663,7 @@ const Home = () => {
                 >
                   Become a Franchise Partner
                 </button>
-                <button 
+                <button
                   className="btn btn-franchise-secondary"
                   onClick={(e) => {
                     e.preventDefault()
@@ -686,19 +686,19 @@ const Home = () => {
       <section id="about" className={`about-section ${aboutVisible ? 'animate' : ''}`} ref={aboutRef}>
         <div className="container">
           <div className={`journey-container ${isJourneyHovered ? 'hovered' : ''}`}>
-            <div 
+            <div
               className="journey-logo-wrapper"
               onMouseEnter={() => setIsJourneyHovered(true)}
               onMouseLeave={() => setIsJourneyHovered(false)}
             >
-              <img 
-                src="/images/crunch_junction_logo_3d.svg" 
-                alt="CrunchJunction" 
-                className="journey-logo" 
+              <img
+                src="/images/crunch_junction_logo_3d.svg"
+                alt="CrunchJunction"
+                className="journey-logo"
               />
             </div>
-            
-            <div 
+
+            <div
               className="journey-content-wrapper"
               onMouseEnter={() => setIsJourneyHovered(true)}
               onMouseLeave={() => setIsJourneyHovered(false)}
@@ -710,26 +710,26 @@ const Home = () => {
                   </div>
                   <div className="about-story-text">
                     <p>
-                      Our story is one of passion, people, and purpose. From the vibrant lanes of the city center 
-                      to neighborhoods across the region, we've grown into multiple locations - each one a joyful 
+                      Our story is one of passion, people, and purpose. From the vibrant lanes of the city center
+                      to neighborhoods across the region, we've grown into multiple locations - each one a joyful
                       step in our journey to connect hearts, build trust, and create something truly meaningful together.
                     </p>
                     <p>
-                      What started as a small dream in 2019 has blossomed into a beloved brand that brings people 
-                      together through the joy of delicious, crunchy food. We believe in using only the freshest 
-                      ingredients, prepared with love and served with a smile. Every dish tells a story, and every 
+                      What started as a small dream in 2019 has blossomed into a beloved brand that brings people
+                      together through the joy of delicious, crunchy food. We believe in using only the freshest
+                      ingredients, prepared with love and served with a smile. Every dish tells a story, and every
                       customer becomes part of our extended family.
                     </p>
                   </div>
                   <button className="btn btn-secondary">Read More</button>
                 </div>
-                
+
                 <div className="journey-content-right">
                   <div className="journey-logo-right">
-                    <img 
-                      src="/images/crunch_junction_logo_3d.svg" 
-                      alt="CrunchJunction" 
-                      className="journey-logo-expanded" 
+                    <img
+                      src="/images/crunch_junction_logo_3d.svg"
+                      alt="CrunchJunction"
+                      className="journey-logo-expanded"
                     />
                   </div>
                 </div>
@@ -826,6 +826,7 @@ const Home = () => {
                 <span className="info-icon">📍</span>
                 <div>
                   <p className="info-label">Address</p>
+                  <h3 className='info-label'>Olivento Pvt Ltd</h3>
                   <p className="info-value">M.G road, Buno kali tala, Chinsurah, Hooghly 712101</p>
                 </div>
               </div>
@@ -853,9 +854,9 @@ const Home = () => {
                 <div className="directors-grid">
                   <div className="director-card">
                     <div className="director-image-wrapper">
-                      <img 
-                        src="/images/Amit_Kumar_Dasgupta.jpg" 
-                        alt="Amit Kumar Dasgupta" 
+                      <img
+                        src="/images/Amit_Kumar_Dasgupta.jpg"
+                        alt="Amit Kumar Dasgupta"
                         className="director-image"
                       />
                     </div>
@@ -866,9 +867,9 @@ const Home = () => {
                   </div>
                   <div className="director-card">
                     <div className="director-image-wrapper">
-                      <img 
-                        src="/images/Biswajit_Das.jpg" 
-                        alt="Biswajit Das" 
+                      <img
+                        src="/images/Biswajit_Das.jpg"
+                        alt="Biswajit Das"
                         className="director-image"
                       />
                     </div>

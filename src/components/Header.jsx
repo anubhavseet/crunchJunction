@@ -9,7 +9,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
-      
+
       // Update active section based on scroll position
       const sections = ['home', 'menu', 'about', 'testimonials', 'contact']
       const scrollPosition = window.scrollY + 100
@@ -51,44 +51,44 @@ const Header = () => {
             <img src="/images/crunch_junction_logo_3d.svg" alt="CrunchJunction" className="logo-image-side" />
           </a>
         </div>
-        
+
         <nav className={`nav-left ${isMobileMenuOpen ? 'open' : ''}`}>
-          <a 
-            href="#menu" 
+          <a
+            href="#menu"
             className={`nav-link ${activeSection === 'menu' ? 'active' : ''}`}
             onClick={(e) => handleNavClick(e, 'menu')}
           >
             Menu
           </a>
-          <a 
-            href="#about" 
+          <a
+            href="#about"
             className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
             onClick={(e) => handleNavClick(e, 'about')}
           >
             Our Story
           </a>
-          
-          <a 
-            href="#contact" 
+
+          <a
+            href="#contact"
             className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
             onClick={(e) => handleNavClick(e, 'contact')}
           >
             Contact
           </a>
         </nav>
-        
+
         <a href="#home" className="logo" onClick={(e) => handleNavClick(e, 'home')}>
           <span className="logo-text"><span className="logo-accent">Crunch</span><span className="logo-junction">Junction</span></span>
         </a>
-        
+
         <div className="header-right">
-        
+
           <button className="btn btn-primary" onClick={(e) => handleNavClick(e, 'contact')}>
             Get Franchise
           </button>
         </div>
 
-        <button 
+        <button
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
@@ -97,7 +97,7 @@ const Header = () => {
           <span></span>
           <span></span>
         </button>
-        
+
         <div className="mobile-header-right">
           <button className="btn btn-primary btn-sm" onClick={(e) => {
             handleNavClick(e, 'contact')
